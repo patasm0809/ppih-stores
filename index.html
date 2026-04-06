@@ -139,26 +139,26 @@ fetch(URL)
     const end = text.lastIndexOf(')');
     const json = JSON.parse(text.substring(start, end));
     const rows = json.table.rows;
+    const cols = json.table.cols;
 
-    // Row 0 = title row, Row 2 = header, Row 3+ = data
-    const titleText = rows[0]?.c?.[0]?.v || 'PPIH 도입 점포 리스트';
-    const dateMatch = titleText.match(/\d{8}/);
+    // Extract date from column label (title row absorbed by gviz)
+    const colLabel = cols[0]?.label || '';
+    const dateMatch = colLabel.match(/\d{8}/);
     const dateStr = dateMatch ? `${dateMatch[0].slice(0,4)}.${dateMatch[0].slice(4,6)}.${dateMatch[0].slice(6,8)}` : '';
 
     document.getElementById('subtitle').textContent = `Updated: ${dateStr} · 구글시트 실시간 연동`;
 
-    // Parse data rows (starting from row index 3)
+    // gviz absorbs header rows into column labels, data starts at row 0
     const data = [];
-    for (let i = 3; i < rows.length; i++) {
+    for (let i = 0; i < rows.length; i++) {
       const r = rows[i];
       if (!r.c || !r.c[0] || !r.c[0].v) continue;
-      data.push({
-        no: r.c[0]?.v || '',
-        category: r.c[1]?.v || '',
-        country: r.c[2]?.v || '',
-        name: r.c[3]?.v || '',
-        url: r.c[4]?.v || ''
-      });
+      const no = r.c[0].v;
+      const category = r.c[1]?.v || '';
+      const country = r.c[2]?.v || '';
+      const name = r.c[3]?.v || '';
+      const url = r.c[4]?.v || '';
+      data.push({ no: Math.round(no), category, country, name, url });
     }
 
     // Stats
