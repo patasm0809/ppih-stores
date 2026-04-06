@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PPIH 도입 점포 리스트_20260324</title>
+<title>PPIH 도입 점포 리스트</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -57,10 +57,6 @@
     width: 40px;
     text-align: center;
   }
-  td.category {
-    font-size: 11px;
-    letter-spacing: 0.5px;
-  }
   .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -76,37 +72,28 @@
     background: #e5e5e5;
     color: #333;
   }
-  td.country {
-    font-weight: 500;
-  }
-  td.store-name {
-    font-weight: 600;
-  }
+  td.country { font-weight: 500; }
+  td.store-name { font-weight: 600; }
   td a {
     color: #111;
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     transition: border-color 0.15s;
   }
-  td a:hover {
-    border-bottom-color: #111;
-  }
+  td a:hover { border-bottom-color: #111; }
   .stats {
     display: flex;
     gap: 32px;
     margin-bottom: 32px;
   }
-  .stat-box {
-    padding: 16px 0;
-  }
-  .stat-number {
-    font-size: 32px;
-    font-weight: 700;
-  }
-  .stat-label {
-    font-size: 12px;
+  .stat-box { padding: 16px 0; }
+  .stat-number { font-size: 32px; font-weight: 700; }
+  .stat-label { font-size: 12px; color: #888; margin-top: 4px; }
+  .loading {
+    text-align: center;
+    padding: 60px 0;
     color: #888;
-    margin-top: 4px;
+    font-size: 14px;
   }
   @media (max-width: 768px) {
     body { padding: 20px 12px; }
@@ -117,170 +104,105 @@
 </head>
 <body>
 
-<h1>PPIH 도입 점포 리스트</h1>
-<p class="subtitle">Updated: 2026.03.24</p>
+<h1 id="title">PPIH 도입 점포 리스트</h1>
+<p class="subtitle" id="subtitle">Loading...</p>
 
 <div class="stats">
   <div class="stat-box">
-    <div class="stat-number">19</div>
+    <div class="stat-number" id="stat-total">-</div>
     <div class="stat-label">전체 점포</div>
   </div>
   <div class="stat-box">
-    <div class="stat-number">4</div>
+    <div class="stat-number" id="stat-domestic">-</div>
     <div class="stat-label">일본 전개</div>
   </div>
   <div class="stat-box">
-    <div class="stat-number">15</div>
+    <div class="stat-number" id="stat-overseas">-</div>
     <div class="stat-label">해외 전개</div>
   </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>No</th>
-      <th>구분</th>
-      <th>국가</th>
-      <th>점포명</th>
-      <th>링크</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="no">1</td>
-      <td class="category"><span class="badge badge-domestic">일본 전개</span></td>
-      <td class="country">일본</td>
-      <td class="store-name">키라키라돈키 에비나 비나워크점</td>
-      <td><a href="https://www.donki.com/store/shop_detail.php?shop_id=724" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">2</td>
-      <td class="category"><span class="badge badge-domestic">일본 전개</span></td>
-      <td class="country">일본</td>
-      <td class="store-name">키라키라돈키 하카타마루이점</td>
-      <td><a href="https://www.donki.com/store/shop_detail.php?shop_id=690" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">3</td>
-      <td class="category"><span class="badge badge-domestic">일본 전개</span></td>
-      <td class="country">일본</td>
-      <td class="store-name">키라키라돈키 후지미초점</td>
-      <td><a href="https://www.donki.com/store/shop_detail.php?shop_id=730" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">4</td>
-      <td class="category"><span class="badge badge-domestic">일본 전개</span></td>
-      <td class="country">일본</td>
-      <td class="store-name">MEGA돈키호테 카타노점</td>
-      <td><a href="https://digitalpr.jp/r/131402" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">5</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (캘리포니아)</td>
-      <td class="store-name">TOKYO CENTRAL Gardena Store</td>
-      <td><a href="https://tokyocentral.com/gardena/" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">6</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (캘리포니아)</td>
-      <td class="store-name">TOKYO CENTRAL & MAIN San Diego Store</td>
-      <td><a href="https://tokyocentral.com/sandiego2/" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">7</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (캘리포니아)</td>
-      <td class="store-name">Marukai Market Little Tokyo Store</td>
-      <td><a href="https://tokyocentral.com/littletokyo/" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">8</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (캘리포니아)</td>
-      <td class="store-name">TOKYO CENTRAL Kawaii</td>
-      <td><a href="https://tokyocentral.com/littletokyokawaii/" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">9</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">괌</td>
-      <td class="store-name">DON DON DONKI VILLAGE OF DONKI</td>
-      <td><a href="https://www.villageofdonki.com" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">10</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (하와이)</td>
-      <td class="store-name">Don Quijote Kaheka</td>
-      <td><a href="https://www.donquijotehawaii.com/store/don-quijote-honolulu" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">11</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">미국 (하와이)</td>
-      <td class="store-name">DON DON DONKI Kapolei</td>
-      <td><a href="https://www.donquijotehawaii.com/store/don-don-donki-kapolei" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">12</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">태국</td>
-      <td class="store-name">DON DON DONKI MBK Center</td>
-      <td><a href="https://www.dondondonki.com/th/store/?shop_id=210004" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">13</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI Mira Place2</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220001" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">14</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI OP Mall</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220002" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">15</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI CAUSEWAY BAY</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220003" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">16</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI 100 QRC</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220004" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">17</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI TMT Plaza</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220007" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">18</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI Whampoa Garden</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220010" target="_blank">Link</a></td>
-    </tr>
-    <tr>
-      <td class="no">19</td>
-      <td class="category"><span class="badge badge-overseas">해외 전개</span></td>
-      <td class="country">홍콩</td>
-      <td class="store-name">DON DON DONKI MPM (MONGKOK)</td>
-      <td><a href="https://www.dondondonki.com/hk/?shop_id=220012" target="_blank">Link</a></td>
-    </tr>
-  </tbody>
-</table>
+<div id="table-container">
+  <p class="loading">데이터를 불러오는 중...</p>
+</div>
+
+<script>
+const SHEET_ID = '10o_sVjaxSOB9HfIBEXZ1z1w51V9qI2_Z-cgSc69ZpJc';
+const GID = '1287401047';
+const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&gid=${GID}`;
+
+fetch(URL)
+  .then(res => res.text())
+  .then(text => {
+    // Google returns JSONP-like response, strip wrapper
+    const json = JSON.parse(text.substring(47, text.length - 2));
+    const rows = json.table.rows;
+
+    // Row 0 = title row, Row 2 = header, Row 3+ = data
+    const titleText = rows[0]?.c?.[0]?.v || 'PPIH 도입 점포 리스트';
+    const dateMatch = titleText.match(/\d{8}/);
+    const dateStr = dateMatch ? `${dateMatch[0].slice(0,4)}.${dateMatch[0].slice(4,6)}.${dateMatch[0].slice(6,8)}` : '';
+
+    document.getElementById('subtitle').textContent = `Updated: ${dateStr} · 구글시트 실시간 연동`;
+
+    // Parse data rows (starting from row index 3)
+    const data = [];
+    for (let i = 3; i < rows.length; i++) {
+      const r = rows[i];
+      if (!r.c || !r.c[0] || !r.c[0].v) continue;
+      data.push({
+        no: r.c[0]?.v || '',
+        category: r.c[1]?.v || '',
+        country: r.c[2]?.v || '',
+        name: r.c[3]?.v || '',
+        url: r.c[4]?.v || ''
+      });
+    }
+
+    // Stats
+    const domestic = data.filter(d => d.category === '国内法人').length;
+    const overseas = data.filter(d => d.category === '海外法人').length;
+    document.getElementById('stat-total').textContent = data.length;
+    document.getElementById('stat-domestic').textContent = domestic;
+    document.getElementById('stat-overseas').textContent = overseas;
+
+    // Country mapping
+    const countryMap = {
+      '日本': '일본', 'カルフォルニア': '미국 (캘리포니아)', 'カリフォルニア': '미국 (캘리포니아)',
+      'グアム': '괌', 'ハワイ': '미국 (하와이)', 'タイ': '태국', '香港': '홍콩'
+    };
+
+    // Build table
+    let html = `<table>
+      <thead><tr>
+        <th>No</th><th>구분</th><th>국가</th><th>점포명</th><th>링크</th>
+      </tr></thead><tbody>`;
+
+    data.forEach(d => {
+      const isDomestic = d.category === '国内法人';
+      const badgeClass = isDomestic ? 'badge-domestic' : 'badge-overseas';
+      const badgeText = isDomestic ? '일본 전개' : '해외 전개';
+      const country = countryMap[d.country] || d.country;
+      const link = d.url ? `<a href="${d.url}" target="_blank">Link</a>` : '';
+
+      html += `<tr>
+        <td class="no">${d.no}</td>
+        <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+        <td class="country">${country}</td>
+        <td class="store-name">${d.name}</td>
+        <td>${link}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+    document.getElementById('table-container').innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById('table-container').innerHTML =
+      `<p class="loading">데이터 로딩 실패. 새로고침 해주세요.</p>`;
+    console.error(err);
+  });
+</script>
 
 </body>
 </html>
