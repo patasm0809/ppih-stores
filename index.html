@@ -134,8 +134,10 @@ const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:
 fetch(URL)
   .then(res => res.text())
   .then(text => {
-    // Google returns JSONP-like response, strip wrapper
-    const json = JSON.parse(text.substring(47, text.length - 2));
+    // Google returns JSONP-like response: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
+    const start = text.indexOf('(') + 1;
+    const end = text.lastIndexOf(')');
+    const json = JSON.parse(text.substring(start, end));
     const rows = json.table.rows;
 
     // Row 0 = title row, Row 2 = header, Row 3+ = data
