@@ -158,7 +158,9 @@ fetch(URL)
       const country = r.c[2]?.v || '';
       const name = r.c[3]?.v || '';
       const url = r.c[4]?.v || '';
-      data.push({ no: Math.round(no), category, country, name, url });
+      const launchDate = r.c[5]?.v || '';
+      const sales = r.c[6]?.v || '';
+      data.push({ no: Math.round(no), category, country, name, url, launchDate, sales });
     }
 
     // Stats
@@ -177,7 +179,7 @@ fetch(URL)
     // Build table
     let html = `<table>
       <thead><tr>
-        <th>No</th><th>구분</th><th>국가</th><th>점포명</th><th>링크</th>
+        <th>No</th><th>구분</th><th>국가</th><th>점포명</th><th>링크</th><th>전개일</th><th>매출(도매)</th>
       </tr></thead><tbody>`;
 
     data.forEach(d => {
@@ -193,6 +195,8 @@ fetch(URL)
         <td class="country">${country}</td>
         <td class="store-name">${d.name}</td>
         <td>${link}</td>
+        <td>${d.launchDate}</td>
+        <td>${d.sales}</td>
       </tr>`;
     });
 
